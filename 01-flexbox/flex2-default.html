@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 2 Flex Items Default Behaviours</title>
+    <style>
+      .flex-container {
+        padding: 10px;
+        display: flex;
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+      }
+
+      .flex-item {
+        /* Work as specified width only when there's available space. */
+        /* When there's limited space, and more items to fit in the available space, it will shrink. */
+        width: 100px; 
+        height: 100px; /* When you didn't specify, it will follow the flex container height. */
+        line-height: 50px;
+        font-size: 20px;
+        color: #fff;
+        text-align: center;
+        background-color: tomato;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <!-- the flex items slowly shrinking to fit the available space with the flex container if there are more items than can fit,... -->
+       <!-- Until a point when the total width of every flex items, taking into margin, and it exceeds the flex container width, it starts overflow. -->
+      <!-- No wrap will happens. -->
+      <!-- The elements will fall out of the flex container -->
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+      <div class="flex-item">7</div>
+      <div class="flex-item">8</div>
+    </div>
+  </body>
+</html>

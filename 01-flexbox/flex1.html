@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox</title>
+    <style>
+      .flex-container {
+        display: flex;
+        background-color: skyblue;
+      }
+
+      .inline-flex-container {
+        /* Make the container behaves like inline-block. */
+        /* You can also specify the widtha and height yourself. */
+        display: inline-flex;
+        background-color: skyblue;
+      }
+
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        /* When you didn't specify display flex on the parent, the margin-top will not be applied.*/
+        /* Unless you are not using flexbox, you may set the children as inline-block to avoid the margin collapse.*/
+        margin: 10px; 
+        background-color: pink;
+        
+      }
+
+      span {
+        display: flex;
+        height: 300px;
+        background-color: tomato;
+      }
+
+      span i {
+        /* the children of span also support the setting of width and height. */
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        
+        float: left; /* Setting float, clear, or vertical align not work in flex item.  */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Flex -->
+    <div class="flex-container">
+      <div class="flex-item">Flex Items</div>
+      <div class="flex-item">Flex Items</div>
+      <div class="flex-item">Flex Items</div>
+      <div class="flex-item">Flex Items</div>
+    </div>
+    <br />
+    <!-- Inline-Flex -->
+    <div class="inline-flex-container">
+      <div class="flex-item">Flex Items</div>
+      <div class="flex-item">Flex Items</div>
+      <div class="flex-item">Flex Items</div>
+      <div class="flex-item">Flex Items</div>
+    </div>
+    <span>
+        <i>flex can apply to any element including inline element.</i>
+        <i>Now span behaves like block box</i>
+        <i>you can specify the width and height.</i>
+    </span>
+  </body>
+</html>

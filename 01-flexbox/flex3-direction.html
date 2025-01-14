@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 3 - Flex Container Properties - flex-direction</title>
+    <style>
+      .flex-container {
+        padding: 10px;
+        display: flex;
+        /* flex-direction: row-reverse; Main axis goes from right to left. */
+        /* flex-direction: column; */
+        flex-direction: column-reverse;
+        width: 800px; /* Container width */
+        height: 400px;
+        background-color: skyblue;
+      }
+
+      .flex-item {
+        width: 100px;
+        height: 100px; /* When you didn't specify, it will follow the flex container height. */
+        background-color: khaki;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+    </div>
+  </body>
+</html>

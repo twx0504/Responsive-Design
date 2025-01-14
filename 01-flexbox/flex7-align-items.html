@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 7 - Flex Container Properties - align-items</title>
+    <style>
+      .flex-container {
+        /* width: 500px; */
+        height: 800px;
+        background-color: skyblue;
+        display: flex;
+        /* Main axis: Left to right. */
+        /* Cross axis: Top to bottom. */
+
+        /* Set the alignment of flex items along the cross axis. */
+        /* Default: when the flex item haven't set the height, or set height as auto, it will take up as much space as the flex container height. */
+        /* align-items: stretch; */
+        /* align-items: flex-start; */
+        /* align-items: flex-end; */
+        align-items: center;
+        /* align-items: baseline; */
+      }
+
+      .flex-item {
+        width: 100px;
+        height: 100px; /* We set height on flex item. */
+        background-color: khaki;
+        margin: 10px;
+      }
+      
+
+      /* Set the font size to illustrate what is baseline alignment. */
+      .flex-item:nth-child(1) {
+        font-size: 40px;
+      }
+
+      .flex-item:nth-child(2) {
+        font-size: 80px;
+      }
+      .flex-item:nth-child(3) {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 4 - Flex Container Properties - flex-wrap</title>
+    <style>
+      .flex-container {
+        width: 300px; /* Container width */
+        height: 300px;
+        background-color: skyblue;
+        display: flex;
+        flex-direction: column;
+        /* Note: How wrapping works is related to the direction of main axis. */
+        /* The alignment of flex items after wrapping will be different based on the flex direction. */
+        /* Generally, */
+        /* row: it is width to be shrinked, when they exceed the available width of the container, wrap onto new row. */
+        /* column: it is height to be shrinked, when they exceed the available width of the container, wrap onto new column. */
+        flex-wrap: wrap; /* Wrap onto multiple lines when not enough space. */
+        /* flex-wrap: wrap-reverse;*/
+      }
+
+      .flex-item {
+        /* What is considered not enough space. */
+        /* All occupied width of the flex items (480px) > container width (300px) , it means not fit. */
+        /* Total Occupied Width = 100 width + 20 margin = 120 * 4 = 480px */
+        /* When the flex items shrinks, it tells us that the available space within the flex container is not enough. */
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Flexbox 8 - Flex Container Properties - align-items 2 - when wrapped.
+    </title>
+    <style>
+      .flex-container {
+        width: 400px;
+        /* When the height is not specified, it will just wrap onto new lines. The height of the container will be based on the content height.*/
+        /* But now we are discussing about the situation when the height of the flex container is specified. */
+        height: 800px;
+        background-color: skyblue;
+        display: flex;
+        /* We allows wrapping. */
+        /* There will be more than one main axis (flex lines). */
+        /* The question, how does the space occupation by each flex lines being calculated / distributed?  */
+        flex-wrap: wrap;
+        /* Only works when there's more than one flex line (After wrapping...) */
+        align-content: center;
+        /* align-content: flex-start; */
+        /* align-content: flex-end; */
+        /* align-content: space-around; */
+        /* align-content: space-between; */
+        /* align-content: space-evenly; */
+        /* align-content: stretch; */
+      }
+
+      .flex-item {
+        width: 100px;
+        /*  We set height on flex item. */
+        height: 100px;
+        background-color: khaki;
+        margin: 10px;
+      }
+
+      /* Set height on a specific element. */
+      /* Intend to make one flex item to 200px height. */
+      /* Test to see how the space distribution works between each flexline. */
+      .h200 {
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <!-- 
+        SharedSpacePerLine = flexContainerHeight - SumOfTheHighestFlexItemOfEachFlexLine / NumberOfFlexLines
+        800px - 200px - 100px = 500 / 2 = 250px
+
+        HighestFlexItem + SharedSpcePerLine = FlexLineSpace.
+        flex line 1: 
+        200px (Highest Item) + 250px  (Shared Space)= 450px
+        flex line 2: 
+        100px (Highest Item) + 250px  (Shared Space)= 350px
+
+        Therefore, this is why flex line 1 has more height compared to flex line 2.
+        Note that the space occupied by each flex line is not necessarily equal. Though the shared space is evenly distributed.
+        It is pretty much dependent on the tallest flex item on that line.
+        -->
+      <div class="flex-item">1</div>
+
+      <!-- When align con -->
+      <div class="flex-item h200">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+  </body>
+</html>
