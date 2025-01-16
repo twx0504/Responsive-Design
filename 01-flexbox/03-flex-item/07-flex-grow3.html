@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 15 - Flex Grow 3</title>
+    <style>
+      .flex-container {
+        width: 800px;
+        height: 800px;
+        background-color: skyblue;
+        display: flex;
+      }
+
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        margin: 10px;
+        /* Default */
+        /* flex-grow: 0; */
+      }
+
+      /* In real world, we won't go into details to calculate the exact resulting size. */
+      /* You just need to know that the higher the flex-grow value, the greater size that item gets relative to other flex items. */
+      .flex-item:nth-child(1) {
+        flex-grow: 1;
+      }
+
+      .flex-item:nth-child(2) {
+        flex-grow: 2;
+      }
+
+      .flex-item:nth-child(3) {
+        flex-grow: 3;
+      }
+      
+      /* When the the total flex-grow of all Item >= 1 */
+      /* Use of Fraction */
+      /* 0.5 + 0.1 + 0.2 < 1 */
+      
+      /* Step 1: Calculate remaining free space: */
+      /* freeSpace = flexContainerWidth - sumOfNaturalSizeOfFlexItems */
+      /* 800px - 120px * 3 = 800 - 360 = 440px */
+      /* resultingWidth = flexItemNaturalSize + positiveFreeSpace * flexGrow / totalFlexGrowOfAllItems */
+      /* Item1ResultingWidth = 100 + 440 * 1 / 6 = 173.333px */
+      /* Item2ResultingWidth = 100 + 440 * 2 / 6 =  246.667px */
+      /* Item3ResultingWidth = 100 + 440 * 3 / 6 = 320px */
+
+    </style>
+  </head>
+  <body>
+    <div class="flex-container h200">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </body>
+</html>

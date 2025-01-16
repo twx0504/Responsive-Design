@@ -158,4 +158,61 @@ The following properties are set on the flex container (parent).
 
 ## Flex Item Properties
 
+- `order`: set the order of flex item. 
+  - the higher the value, the further back the item will be placed.
+  - default: 0 for all items.
+  - With similar order, the item appears at the front in the source code will be put first.
+  - only works on element with display flex & grid.
+  - only affects the visual effect, not the logical / tab order.
+- `align-self`: override the align-items property, and allows individual flex item having their own alignment along the cross axis. 
+  > Note: when wrapping happens, there will be more than one flex lines, and each flex lines will be its own compartment. The align-self will be taken effect on each compartment.
+  - auto: default, inherits parent align-items property. Without parent, it is equal to stretch.
+  - stretch: occupy the flex container height, when we do not set height of the flex item, or the flex item height is auto.
+  - flex-start
+  - flex-end
+  - center
+  - baseline: ligns based on the baseline of the first line of text in the flex item
+    - first baseline: same as baseline.
+    - last baseline: based on last line.
+- `flex-grow`: set the flex grow factor of flex item's main size. The main size (width or height) depends on the flex-direction.
+  - works only when the flex container has positive free space that can be distributed.
+  - positive free space = flex container size - Sum of flex item size.
+  - the free space must be > 0. Otherwise, it will not be enlarge.
+  - default: 0, meaning that when there's positive free space, it will not grow.
+  - calculation for > 0 flex-grow value
+    - when the sum of flex-grow value of all items < 1,
+      - `resultingWidth = flexItemNaturalSize + positiveFreeSpace * flexGrow`
+    - when the sume of flex-grow value of all item >= 1,
+      - `resultingWidth = flexItemNaturalSize + positiveFreeSpace * flexGrow / totalFlexGrowOfAllItems`
+- `flex-shrink`: set the flex shrink factor, which determines how much the flex item will shrink relative to the rest of the flex items in the flex containner when negative free space is distributed.
+  - shrinking happens when all sumOfAllFlexItemNaturalSize > containerSize.
+  - default: 1, when the container size is not enough to fit in all the flex items, all flex items will  hrinkk in a equal proportion.
+  - only take effect when the flex container do not allow wrapping `flex-wrap: nowrap`
+  - To understand more about how shrinking calculation works: [
+Controlling ratios of flex items along the main axis](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Controlling_ratios_of_flex_items_along_the_main_axis#important_concepts_when_working_on_the_main_axis)
+  - rule of thumbs:
+    - totalFlexGrow < 1, not shrink completely into the flex container.
+    - totalFlexGrow > 1, shrink completely into the flex container.
+    - content size must be taken into account, shrinking will not shrink below content size.
+- `flex-basis`: set initial size (main size) a flex item before any distribution of the positive or negative free space happens.
+  - default: auto
+- `flex`: a shorthand of flex-grow, flex-shrink, and flex-basis.
+  - default: 0 1 auto
+  - three ways of writing:
+    - one value:
+      - a. `flex: <flex-grow> 1 0`
+        - `flex: 1`  equivalent to `flex: 1 1 0` (without unit, it is flex-grow, note: this flex item doesn't have flex-basis. when there's no content in the flex item, and the items before it has occupied the remaining space, it will not be shown on the screen.)
+      - b. `flex: 1 1 <flex-basis>`
+        - `flex: 1px` equivalent to `1 1 1px` (when specify px, it will be flex-basis)
+      - keywords: 
+        - `initial`: flex: 0 1 auto
+        - `auto`: 1 1 0 (support flexbox)
+        - `none`: 0 0 auto (do not support flexbox)
+    - two values:
+      - a. flex-shrink: `flex: <flex-grow> <flex-shrink> 0`
+        -  `flex 1 1` (equivalent to 1 1 0)
+      - b. flex-basis: `flex: <flex-grow> 1 <flex-basis>`
+        - `flex: 1 auto` (equivalent to flex: 1 1 auto)
+    - three values:  `flex: <flex-grow> <flex-shrink> <flex-basis>`
+
 ## 

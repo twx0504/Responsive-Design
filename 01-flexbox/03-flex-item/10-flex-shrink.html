@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 18 - Flex Shrink Calculation</title>
+    <style>
+      .flex-container {
+        width: 400px;
+        height: 100px;
+        background-color: skyblue;
+        display: flex;
+        color: #fff;
+      }
+      /* Common */
+      .flex-item {
+        line-height: 50px;
+        text-align: center;
+        font-size: 30px;
+      }
+
+      /* Overflow is inevitable. */
+      /* Shrinking calculation is flexbox is complicated and it is not applicable to all the case. */
+      /* Case: totalFlexShrink < 1 */
+      /* Step 1: negativeFreeSpace = sumOfFlexItemSize - containerSize */ 
+      /* Note: If there's margin, you should consider margin too. */
+      /* 300 + 200 + 100 - 400 = 200px */
+      /* Step 2: totalShrinkSizeOfAllItems = negativeFreeSpace * totalFlexShrink */
+      /* 200 * (0.1 + 0.2 + 0.2) = 100px */
+      /* Step 3: currentFlexItemShrinkingRatio = (flexItemSize * flexShrink) /  (sumOf <flexItemSize * flexShrink>)  */
+      /* item 1: 300 * 0.1   / (300 * 0.1 + 200 * 0.2 + 100 * 0.2)    = 30 / 30 + 40 + 20 = 30 / 90   = 1/3  */
+      /* item 2: 200 * 0.2   / (300 * 0.1 + 200 * 0.2 + 100 * 0.2)    = 0.444 */
+      /* item 3: 100 * 0.2   / (300 * 0.1 + 200 * 0.2 + 100 * 0.2)    = 0.222 */
+
+
+      /* Step 4: ResultingSizeItem = flexItemSize -  totalShrinkSizeOfAllItems * currentFlexItemShrinkingRatio  */
+      /* Item 1: 300 - 100  * 1/3  = 266.7px */
+      /* Item 2: 200 - 100  * 0.444  = 155.6px */
+      /* Item 3: 100 - 100  * 0.222 = 77.8px */
+
+      .flex-item:nth-child(1) {
+        background-color: tomato;
+        width: 300px;
+        flex-shrink: 0.1;
+      }
+
+      .flex-item:nth-child(2) {
+        background-color: khaki;
+        width: 200px;
+        flex-shrink: 0.2;
+      }
+
+      .flex-item:nth-child(3) {
+        background-color: pink;
+        width: 100px;
+        flex-shrink: 0.2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container h200">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </body>
+</html>

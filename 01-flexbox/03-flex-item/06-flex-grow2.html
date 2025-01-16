@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 14 - Flex Grow 2</title>
+    <style>
+      .flex-container {
+        width: 800px;
+        height: 800px;
+        background-color: skyblue;
+        display: flex;
+      }
+
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        margin: 10px;
+        /* Default */
+        /* flex-grow: 0; */
+      }
+
+      .flex-item:nth-child(1) {
+        flex-grow: 0.5;
+      }
+
+      .flex-item:nth-child(2) {
+        flex-grow: 0.1;
+      }
+
+      .flex-item:nth-child(3) {
+        flex-grow: 0.2;
+      }
+      /* When the the total flex-grow of all Item < 1 */
+      /* 0.5 + 0.1 + 0.2 < 1 */
+      /* resultingWidth = flexItemNaturalSize + positiveFreeSpace * flexGrow */
+      /* Step 1: Calculate remaining free space: */
+      /* freeSpace = flexContainerWidth - sumOfNaturalSizeOfFlexItems */
+      /* 800px - 120px * 3 = 800 - 360 = 440px */
+      /* Item1ResultingWidth = flexItemSize + freeSpace * flex-grow =  100 + 440 * 0.5 = 320px */
+      /* Item2ResultingWidth = flexItemSize + freeSpace * flex-grow =  100 + 440 * 0.1 = 144px */
+      /* Item3ResultingWidth = flexItemSize + freeSpace * flex-grow =  100 + 440 * 0.2 = 188px */
+
+    </style>
+  </head>
+  <body>
+    <div class="flex-container h200">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </body>
+</html>

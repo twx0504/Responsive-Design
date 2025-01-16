@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 19 - Flex Basis</title>
+    <style>
+      .flex-container {
+        width: 800px;
+        height: 500px;
+        background-color: skyblue;
+        display: flex;
+      }
+
+      /* Before calculation of the available free space: 800 container size - 3 * (200 size + 20 margin) */
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        margin: 10px;
+        /* Set the initial flex item 1 size as 200px before any distribution of free space. */
+        /* Note: the priority of flex-basis is more than width / height. */
+        /* Default treat it as width */
+        /* flex-basis: 200px;  */
+
+        /* auto means the natural size of the flex item, which is 100px the width u set. */
+        /* if width is px, just take the value as is */
+        /* if width is %, flex basis based on flex container's content-box size*/
+        /* If width is not set, flex-basis is the item max content size. */
+        /* flex-basis: auto; */
+
+        /* flex item width is its min-content width. (min = as small as a longest word)*/
+        /* 0 / 0% behaves similarly - % is related to flex container */
+        /* Starting out as zero width if there's no content. */
+        /* If there's content, it will go for the min-content size */
+        flex-basis: 0;
+        /* When flex-basis sets to 0, and flex-grow sets to 1, free space will be equally distributed. */
+        flex-grow: 1;
+
+        /* Half the container width but this is before taking into account the shrinking. */
+        /* flex-basis: 50%;  */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container h200">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">Lorem ipsum dolor sit amet.</div>
+      <!-- Without content -->
+      <div class="flex-item"></div>
+    </div>
+  </body>
+</html>

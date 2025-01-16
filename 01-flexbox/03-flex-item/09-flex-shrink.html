@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 17 - Flex Shrink</title>
+    <style>
+      .flex-container {
+        width: 400px;
+        height: 800px;
+        background-color: skyblue;
+        display: flex;
+        /* Must be no wrapping - which is the default behaviours */
+        /* flex-wrap: nowrap; */
+      }
+      /* Common */
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        margin: 10px;
+        /* Even if sum of flex-shrink of all item > 1 */
+        /* It will not shrink below the content size. */
+        /* It must ensure the inner content must be fit. */
+        flex-shrink: 0.3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container h200">
+      <div class="flex-item">1eeeeeeeeeee</div>
+      <div class="flex-item">2eeeeeeeeee</div>
+      <div class="flex-item">3eeeeeeeeeeeee</div>
+      <div class="flex-item">4eeeeeeeeeeee</div>
+      <div class="flex-item">5eeeeeeeeeeeeeeeeee</div>
+    </div>
+  </body>
+</html>

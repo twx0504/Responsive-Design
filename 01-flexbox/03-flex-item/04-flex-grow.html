@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 12 - Flex Grow</title>
+    <style>
+      .flex-container {
+        width: 800px;
+        height: 800px;
+        background-color: skyblue;
+        display: flex;
+      }
+
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        margin: 10px;
+      }
+
+      .flex-item:nth-child(1) {
+        /* Expand to fill the remaining positive free space. */
+        /* All the other flex items has flex-grow of 0.  */
+        /* So the first item will take all the space itself. */
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container h200">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </body>
+</html>

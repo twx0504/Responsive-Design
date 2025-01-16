@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 13 - Flex Grow</title>
+    <style>
+      .flex-container {
+        width: 800px;
+        height: 800px;
+        background-color: skyblue;
+        display: flex;
+      }
+
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        margin: 10px;
+        /* Default */
+        /* flex-grow: 0; */
+      }
+
+      .flex-item:nth-child(1) {
+        /* Expand to fill the positive free space. */
+        /* flex-grow: 1; */
+
+        /* ============ */
+        /* When the the total flex-grow of all Item < 1 */
+        /* 0.5 + 0 + 0 < 1 */
+        /* resultingWidth = flexItemNaturalSize + positiveFreeSpace * flexGrow */
+
+        flex-grow: 0.5;
+
+        /* Step 1: Calculate remaining free space: */
+        /* freeSpace = flexContainerWidth - sumOfNaturalSizeOfFlexItems */
+        /* 800px - 120px * 3 = 800 - 360 = 440px */
+        /* ResultingWidth = flexItemSize + freeSpace * flex-grow =  100 + 440 * 0.5 = 320px */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container h200">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </body>
+</html>

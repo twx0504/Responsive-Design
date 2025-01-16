@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 21 - Flex Shorthand 2</title>
+    <style>
+      .flex-container {
+        width: 100px;
+        height: 500px;
+        background-color: skyblue;
+        display: flex;
+      }
+
+      /* Before calculation of the available free space: 800 container size - 3 * (200 size + 20 margin) */
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        margin: 10px;
+        /* Default */
+        /* three value: flex-grow flex-shrink flex-basis */
+        /* flex: 0 1 auto;  */
+      }
+
+      .flex-item:nth-child(1) {
+        /* One value: */
+        /* 1. without unit, you are setting flex-grow */
+        /* flex: 1 1 0 */
+        /* flex: 1; */
+        /* 2. With px, it is flex-basis */
+        /* flex: 0 1 0 */
+        /* => flex: 0; */
+        /* flex: 1 1 0px */
+        /* => flex: 0px; */
+        /* See the difference? */
+        /* 3. keywords: initial, none, auto */
+        flex: initial;
+        /* flex: 0 1 auto which is default value */
+
+        /* flex: none; */
+        /* => flex: 0 0 auto, which means not support flexbox. Not stretch, not shrink. What size it has is what is has. */
+
+        /* flex: auto; */
+        /* flex: 1 1 auto which support flexbox, shrink and expand. */
+      }
+
+      .flex-item:nth-child(3) {
+        flex: 1; /* flex: 1 1 0 */
+        /* Note: the flex basis is 0, and if this flex item doesn't have a content, it will be out of sight when the items before it fully occupy the space. */
+      }
+      /* flex-grow: 0 for the other two items */
+      /* flex-shrink: 1 for the other two items too. */
+    </style>
+  </head>
+  <body>
+    <div class="flex-container h200">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item"></div>
+    </div>
+    <p>Third item is there, but its flex-basis is 0 and the first two items have fully occupy the remaining space.</p>
+    </div>
+  </body>
+</html>

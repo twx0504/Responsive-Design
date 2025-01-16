@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 20 - Flex Shorthand</title>
+    <style>
+      .flex-container {
+        width: 100px;
+        height: 500px;
+        background-color: skyblue;
+        display: flex;
+      }
+
+      /* Before calculation of the available free space: 800 container size - 3 * (200 size + 20 margin) */
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        margin: 10px;
+        /* Default */
+        /* three value: flex-grow flex-shrink flex-basis */
+        /* flex: 0 1 auto;  */
+      }
+
+      .flex-item:nth-child(1) {
+        /* flex-grow flex-shrink flex-basis */
+        /* if flex-basis starting out as 200px, after shrinking, its size is still greater than the other two items due to proportion. */
+        /* flex-grow: 1 -> take the remaining free space. */
+        /* But in this case, the flex-grow doesn't work。 */
+        /* because there's no enough positive free space to be distributed.*/
+        flex: 1 1 200px;
+        /* flex-basis starts out as 0px, the flex-item size is the min-content. */
+        /* flex: 1 1 0px; */
+        /* This is the same as default flex-shrink though the flex-grow doesn't work. */
+        /* So, all three items shrinks equally. */
+        /* flex: 1 1 100px;  */
+      }
+
+      /* flex-grow: 0 for the other two items */
+      /* flex-shrink: 1 for the other two items too. */
+    </style>
+  </head>
+  <body>
+    <div class="flex-container h200">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+    </div>
+  </body>
+</html>

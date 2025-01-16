@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 11 - Flex Item Properties - Align Self - Multiline</title>
+    <style>
+      .flex-container {
+        width: 500px;
+        height: 800px;
+        background-color: skyblue;
+        display: flex;
+        /* When the wrapping happens, there will be more than one axis. (flex lines) */
+        /* Remember each flexline forms its own compartment?  */
+        flex-wrap: wrap;
+        /* Align-items controls all the flex item alignment along the cross axis. */
+        /* align-items: center; */
+      }
+
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        margin: 10px;
+        align-self: flex-end;
+        align-self: center;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="flex-container h200">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+  </body>
+</html>

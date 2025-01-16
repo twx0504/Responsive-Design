@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 9 - Flex Item Properties - Order</title>
+    <style>
+      .flex-container {
+        width: 800px;
+        height: 200px;
+        background-color: skyblue;
+        display: flex;
+      }
+
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        margin: 10px;
+      }
+      .flex-item:nth-child(3) {
+        background-color: red;
+        order: 2; /* The third flex-item will be put at the end of the group. */
+        /* Why? */
+        /* As all the other flex items still have default order as 0. */
+        /* The higher the order value a flex item has, the further back it will be placed in the group. */
+      }
+
+      .flex-item:nth-child(5) {
+        background-color: orange;
+        order: 3;
+      }
+
+      .flex-item:nth-child(4) {
+        background-color: green;
+        order: -2; /* Support negative value */
+      }
+
+      .order99 {
+        background-color: pink;
+        order: 99;
+      }
+
+      .flex-item:nth-child(8)  {
+        background-color: plum;
+        order: 99; /* The item appears before the other order99 items. */
+        /* Reason: */
+        /* flex item number 8 appears way before than the other three order 99 items in the source code. */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+      <div class="flex-item">7</div>
+      <div class="flex-item">8</div>
+      <div class="flex-item order99">99</div>
+      <div class="flex-item order99">99</div>
+      <div class="flex-item order99">99</div>
+    </div>
+  </body>
+</html>

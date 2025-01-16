@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox 10 - Flex Item Properties - Align Self</title>
+    <style>
+      .flex-container {
+        width: 1000px;
+        background-color: skyblue;
+        display: flex;
+        /* Align-items controls all the flex item alignment along the cross axis. */
+        /* align-items: center; */
+      }
+
+      .flex-item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        margin: 10px;
+        /* Note: this is  a common class for all flex item. */
+        /* Setting align-self here would apply to all flex item. */
+        /* Default: auto means inherit flex container (parent) */
+        /* align-items: auto; */
+        /* align-self: center; */
+      }
+
+      /* To specify individual flex item, we can use nth-child pseudo class */
+      .flex-item:nth-child(1) {
+        align-self: flex-start;
+      }
+
+      .flex-item:nth-child(2) {
+        /* When we don't set align-items on the flex container, it will be default to stretch. */
+        /* set align-self to auto means that we want the flex item to inherit the align-items property from the flex container. */
+        /* When we do not set a specific height on flex item or we set height of flex item as auto, the flex item will stretch to fit the container height. */
+        height: auto; /* We override individual flex item 2 height to auto. So it will no longer 100px height, and now ready to stretch. */
+        /* align-self: auto; */ /* Default align self is already auto. Unless you have it overriden somewhere. */
+      }
+      .flex-item:nth-child(3) {
+        align-self: center;
+      }
+
+      .flex-item:nth-child(4) {
+        /* Align individual flex item on the first baseline */
+        align-self: baseline; /* first baseline */
+      }
+
+      .flex-item:nth-child(5) {
+        /* Align individual flex item on the last baseline */
+        align-self: last baseline;
+      }
+      .flex-item:nth-child(6) {
+        align-self: flex-end;
+      }
+
+      /* To allow better visualization of align-items and align-self effect. */
+      .h100 {
+        height: 100px;
+      }
+      .h200 {
+        height: 200px;
+      }
+
+      .h400 {
+        height: 400px;
+      }
+
+      /* How baseline and last baseline works? */
+    </style>
+  </head>
+  <body>
+    <!-- Without height, align-items and align-self do not work. -->
+    <!-- The similar result when the container height is the same as flex item height (do consider margin) -->
+    <div class="flex-container">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+    <br />
+    <!-- When the container height is less than flex item height (we do consider margin of the flex item), it does add extra space around flex items, thus overflow can occur. -->
+    <!-- The following observation: -->
+    <!-- Use flex-start, overflow at the bottom. -->
+    <!-- Use flex-end, overflow at the top. -->
+    <div class="flex-container h100">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+    <br />
+    <!-- https://web.dev/blog/last-baseline -->
+    <!-- start baseline = flex-start -->
+    <!-- last baseline = flex-end -->
+    <div class="flex-container h200">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item">6</div>
+    </div>
+    <br />
+    <div class="flex-container h400">
+      <div class="flex-item">1</div>
+      <div class="flex-item">2</div>
+      <div class="flex-item">3</div>
+      <div class="flex-item">4</div>
+      <div class="flex-item">5</div>
+      <div class="flex-item" style="overflow-wrap: break-word">
+        6kdjflksjfdslkjfkldsjflksdjfkldsjflksdjlfkdsjklfdjl
+      </div>
+    </div>
+  </body>
+</html>
