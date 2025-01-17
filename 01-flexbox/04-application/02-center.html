@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application 2: Centering</title>
+    <style>
+      /* We need to set html to the height of viewport */
+      /* And then we need to set body to also the same height as html. */
+      html,
+      body {
+        margin: 0; /* Remove the default margin */
+        height: 100%;
+      }
+      .center {
+        display: flex;
+        /* Align item center Horizontally */
+        justify-content: center;
+        /* Align item center vertically */
+        align-items: center;
+      }
+      .flex-container {
+        width: 300px;
+        height: 300px;
+        background-color: skyblue;
+      }
+
+      .flex-item {
+        width: 200px;
+        height: 200px;
+        background-color: tomato;
+      }
+    </style>
+  </head>
+  <body class="center">
+    <div class="flex-container center">
+      <div class="flex-item"></div>
+    </div>
+  </body>
+</html>

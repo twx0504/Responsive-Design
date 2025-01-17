@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application 6: Double Column Layout with text overflow</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body,
+      p {
+        margin: 0;
+      }
+      
+      .flex-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box {
+        border: 1px solid tomato;
+        width: 600px;
+        display: flex;
+        /* Initially, it is stretch, the height of box is the same as flex container. */
+        align-items: center;
+      }
+
+      .box .title {
+        /* Prevent text from wrapping */
+        white-space: nowrap;
+        /* Hide the overflow part */
+        overflow: hidden; 
+        /* When text is overflow, show `...` instead */
+        text-overflow: ellipsis;
+        padding: 5px;
+        /* flex-grow: 1 also works */
+        /* Ensure the left part to get the remaining space. */
+        flex-grow: 1;
+      }
+
+      .box .logo {
+        width: 50px;
+        height: 50px;
+        background-color: tomato;
+        line-height: 50px;
+        text-align: center;
+        margin-left: 10px;
+        /* Prevent logo from shrinking when there's no extra space. */
+        flex-shrink: 0;
+        /* Alternative for flex: 0 0 auto */
+        /* flex: none; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="box">
+        <p class="title">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+          praesentium labore, architecto atque incidunt harum tenetur delectus
+          ipsam magnam officiis?
+        </p>
+        <span class="logo">New</span>
+      </div>
+      <div class="box">
+        <p class="title">
+          Lorem ipsum dolor sit amet
+        </p>
+        <span class="logo">New</span>
+      </div>
+    </div>
+  </body>
+</html>

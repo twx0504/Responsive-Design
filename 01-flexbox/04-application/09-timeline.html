@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application 9: Timeline</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      :root {
+        --width: 800px;
+        --height: 800px;
+      }
+      body,
+      p {
+        margin: 0;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .timeline {
+        width: var(--width);
+        /* height: var(--height); */
+        /* Why do we need to specify min height here? */
+        min-height: 500px;
+        /* Issue: border will not display the true value because it is affected by the window display scale. */
+        /* border: 1px solid red; */
+        display: flex;
+        /* Change main axis to column */
+        flex-direction: column;
+      }
+
+      .schedule {
+        /* calc is used to solve the misalignment issue of the border. */
+        /* || ISSUE Found... || */
+        /* For window display scale 100% -> you need to + 1px instead */
+        /* For window display scale 125% (recommended), - 0.8px works only when dev tool is opened. */
+        /* Note: I couldn't find a good way to solve it. Maybe later come back or post reddit for help. */
+        width: calc(50% - 0.8px);
+        /* Note: setting 50% it will have some misalignment issue. */
+        /* width: 50%; */
+
+        /* We want it to change height based on its content. So, we don't set a min-height. */
+        /* min-height: 200px; */
+
+        /* Use padding to add space between each item. */
+        /* Note: if you use margin-botton, the central line will break. */
+        padding-bottom: 20px;
+      }
+      .schedule:nth-child(2n + 1) {
+        border-right: 2px solid;
+      }
+      /* Even number set to flex end, so it will appear on the right. */
+      .schedule:nth-child(2n) {
+        align-self: flex-end;
+        border-left: 2px solid;
+      }
+      .schedule:nth-child(2n + 1) .content {
+        /* We need to specify min-height on the flex container */
+        /* Then, setting height on flex item will expand. */
+        /* Otherwise, it will overflow. */
+        height: 250px;
+        background-color: skyblue;
+        margin-right: 10px;
+        border-radius: 10px;
+      }
+
+      .schedule:nth-child(2n) .content {
+        height: 250px;
+        background-color: khaki;
+        margin-left: 10px;
+        border-radius: 10px;
+      }
+
+      .schedule:nth-child(2n + 1) .content,
+      .schedule:nth-child(2n) .content {
+        position: relative;
+      }
+
+      .schedule:nth-child(2n + 1) .content::before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent; /* Set border to be transparent color. */
+        border-left-color: skyblue; /* We only specify border-left color as it will be a left triangle */
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(100%, -50%);
+      }
+
+      .schedule:nth-child(2n) .content::before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent; /* Set border to be transparent color. */
+        border-right-color: khaki; /* We only specify border-left color as it will be a left triangle */
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translate(-100%, -50%); /* Move to the left 100% of its own width. -50% Y direction is for centering purpose. */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="timeline">
+      <div class="schedule"><div class="content"></div></div>
+      <div class="schedule"><div class="content"></div></div>
+      <div class="schedule"><div class="content"></div></div>
+      <div class="schedule"><div class="content"></div></div>
+    </div>
+  </body>
+</html>

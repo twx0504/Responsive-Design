@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application 5: Double Wing Layout 2</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      .flex-container {
+        height: 100px;
+        display: flex;
+      }
+
+      .flex-item {
+        width: 200px;
+        text-align: center;
+        line-height: 100px;
+      }
+
+      .middle {
+        background-color: khaki;
+        flex-grow: 1;
+        order: 1;
+      }
+
+      .left {
+        background-color: skyblue;
+        /* One liner instead of specifying order for each flex item. */
+        /* order: -1; */
+        order: 0;
+      }
+      .right {
+        background-color: tomato;
+        order: 2;
+        /* Ensure the container is 800px min-width */
+        /* With this min-width, the shrinking will not happen. */
+        /* Without it, the container will shrink. */
+        min-width: 200px; 
+        display: flex;
+      }
+
+      .item1 {
+        background-color: pink;
+        /* Use of flex-grow can shrink too. */
+        /* flex-grow: 2; */
+
+        /* width 300px is for demonstration only */
+        /* width: 300px; */
+        width: 50px;
+        /* flex-basis: 100px; */
+      }
+      .item2 {
+        background-color: skyblue;
+        /* || IMPORTANT || */
+        /* 1. Use of flex-grow can shrink too. */
+        /* flex-grow: 1; */
+        /* 2. width 500px is for demonstration only */
+        /* width: 500px; */
+        /* 3. when you specify width, the sub-item won't shrink. */
+        width: 150px;
+        /* 4. when you use flex-basis instead, the sub-item can shrink */
+        /* flex-basis: 200px; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <!-- The middle element put first aids SEO. -->
+      <div class="flex-item middle"></div>
+      <div class="flex-item left"></div>
+      <div class="flex-item right">
+        <!-- These two sub-items are regarded as content -->
+        <!-- Shrinking won't happen as it must ensure the content can fit.  -->
+        <div class="item1"></div>
+        <div class="item2"></div>
+      </div>
+    </div>
+  </body>
+</html>

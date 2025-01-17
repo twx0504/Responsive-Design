@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application 1: Responsive Input</title>
+    <style>
+      .flex-container {
+        display: flex;
+        /* width: 600px; */
+        height: 50px;
+        background-color: whitesmoke;
+        align-items: center;
+        /* justify-content: space-evenly; */
+      }
+
+      .flex-item {
+      }
+
+      .search {
+        flex: 1; /* 1 1 0 */
+
+      }
+
+      .search input {
+        width: 100%; /* Take width as parent */
+        box-sizing: border-box; /* include padding and border in width / height calculation, Otherwise, when the input expands, it will overflow a bit. */
+      }
+
+      .logo {
+        width: 100px;
+        background-color: pink;
+
+      }
+
+      .login {
+        width: 100px;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item logo">Logo</div>
+      <div class="flex-item search">
+        <!-- input will have some content. So when it width is 0, it will still exist. -->
+         <!-- Might use js to hide it.  -->
+        <input type="text" />
+      </div>
+      <div class="flex-item login">Login</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application 8: Ladder Layout</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body, p {
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .ladder {
+        width: 1000px;
+        height: 600px;
+        background-color: tomato;
+        /* display: flex; */
+        display: inline-flex;
+        /* Start at the end of the flex container */
+        align-items: flex-end;
+      }
+
+      .step {
+        width: 180px;
+        margin-left: 10px;
+        margin-right: 10px;
+        background-color: skyblue;
+        text-align: center;
+        flex: 1;
+      }
+
+      .h100 {
+        height: 100px;
+        line-height: 100px;
+      }
+      .h200 {
+        height: 200px;
+        line-height: 200px;
+      }
+      .h300 {
+        height: 300px;
+        line-height: 300px;
+      }
+      .h400 {
+        height: 400px;
+        line-height: 400px;
+      }
+      .h500 {
+        height: 500px;
+        line-height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ladder">
+      <div class="step h100"><p>step1</p></div>
+      <div class="step h200"><p>step2</p></div>
+      <div class="step h300"><p>step3</p></div>
+      <div class="step h400"><p>step4</p></div>
+      <div class="step h500"><p>step5</p></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application 4: Double Wing Layout</title>
+    <style>
+      .flex-container {
+        height: 100px;
+        background-color: red;
+        display: flex;
+      }
+
+      .flex-item {
+        width: 200px;
+        text-align: center;
+        line-height: 100px;
+      }
+
+      .middle {
+        background-color: khaki;
+        /* we do not set width for middle, so the other remaining free positive space will be distributed to it. */
+        /* If we specify width for middle, then auto will have the value of width. */
+        /* Therefore, in this case, both flex: auto and flex: 1 behave similarly. */
+        /* Note: flex basis auto will be content size if we didn't specify width here */
+        /* Regardless of what you specify in flex-basis here, this flex item will still get the remaining positive free space. */
+        /* The other two flex items will not get, because they have flex-grow of 0. */
+        /* 1 1 auto */
+        /* flex: auto;   */
+        /* 1 1 0 */
+        /* flex: 1;  */
+
+        /* If you forgot the above shorthand, stick with your goal:  */
+        flex-grow: 1; /* Let this flex item receives the remaining positive free space. */
+        order: 1;
+        
+      }
+      
+      .left {
+        background-color: skyblue;
+        /* One liner instead of specifying order for each flex item. */
+        /* order: -1; */
+        order: 0;
+        
+        
+      }
+      .right {
+        background-color: tomato;
+        order: 2;
+        
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <!-- The middle element put first aids SEO. -->
+      <div class="flex-item middle"></div>
+      <div class="flex-item left"></div>
+      <div class="flex-item right"></div>
+    </div>
+  </body>
+</html>

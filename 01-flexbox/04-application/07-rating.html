@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application 7: Rating</title>
+    <style>
+      .rating {
+        width: 500px;
+        border: 1px solid tomato;
+        display: flex;
+        /* Because css can only select after, we need to reverse the flex direction. */
+        flex-direction: row-reverse;
+        justify-content: center;
+      }
+
+      .star {
+        color: #ddd;
+        fill: red;
+        font-size: 42px;
+        /* Let pseudo element positioning relative to this element. */
+        position: relative;
+      }
+
+      .star::before {
+        /* Will inherit font size of parent */
+        content: "★"; /* "\2605" */
+        /* Sometimes, we want to write stars on html for better reading. */
+        /* We can use positioning to hide them. */
+        /* Question: But why is this totally hiding the psuedo element right behind the star? */
+        /* Answer: This is because the ::before pseudo element was placed at the top left corner of the .star element, and has the same width and height as its parent, besides, the font size is also inherits from parent, causing the size of star is the same too. */
+        /* Therefore, they are overlapping. */
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      
+      /* When hover, we set the subsequent star to red as well. */
+      .star:hover::before,
+      .star:hover ~ .star::before {
+        color: red;
+        
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="rating">
+        <!-- We write stars to enhance the semantic meaning. -->
+         <!-- We know exactly what is contained inside the span. -->
+      <span class="star">☆</span>
+      <span class="star">☆</span>
+      <span class="star">☆</span>
+      <span class="star">☆</span>
+      <span class="star">☆</span>
+    </div>
+  </body>
+</html>

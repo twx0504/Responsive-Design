@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application 10: Space-between Issue</title>
+    <style>
+      .flex-container {
+        width: 480px;
+        background-color: skyblue;
+        display: flex;
+        /* We let the flex container wrap */
+        flex-wrap: wrap;
+        /* Issue: Look at the second row alignment, we hope it would be the same as the above, but the gap on the second row seems bigger. */
+        justify-content: space-between;
+      }
+
+      .flex-container .item {
+        width: 100px;
+        height: 100px;
+        background-color: khaki;
+        margin: 10px 0px; /* We intentionally don't set the left and right margin to 0px  */
+      }
+
+      .flex-container span {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <!-- Formula: n - 2 where n is the max number of item in a row -->
+      <!-- To solve the issue, we use two spans, must set to the same width as other items. -->
+      <!-- This can occupy the slot. -->
+      <!-- Although one span can solve the issue, adding two spans here will tackle all the possible cases.  -->
+      <!-- e.g., -->
+      <!-- When a row can fit 4 -->
+      <!-- We only need two span (n - 2 = 4 - 2 = 2 spans) -->
+      <!-- So, when the second row, you only has one span, it is not a issue. -->
+      <!-- When the second row only has two span, then the two span you add based on the formula solves the issue. -->
+      <!-- When the second row has three span, you only need 1 span to solve the problem, but you have two, the other one will be going to the third row. But it has no height, so it won't show on the page. -->
+      <span></span>
+      <span></span>
+    </div>
+  </body>
+</html>

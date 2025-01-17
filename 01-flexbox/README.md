@@ -215,4 +215,4 @@ Controlling ratios of flex items along the main axis](https://developer.mozilla.
         - `flex: 1 auto` (equivalent to flex: 1 1 auto)
     - three values:  `flex: <flex-grow> <flex-shrink> <flex-basis>`
 
-## 
+![Train](image.png)
