@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rid Container Properties 3: grid-template-areas & grid-area 2</title>
+    <style>
+      .grid {
+        margin: 100px;
+        width: 800px;
+        height: 600px;
+        border: 2px solid tomato;
+        background-color: #f5f5f5;
+        display: grid;
+
+        grid-template-rows: repeat(3, 100px);
+        grid-template-columns: repeat(4, 100px);
+
+        grid-template-areas:
+        /* use dot to skip specifying area.  */
+        /* use null cell token (dot .) to create empty space - unnamed cell */
+        /* The item specified with the grid area name will be going into their respective slot. */
+        /* The rest of item without specific grid area will go into empty slot. */
+          "a . . d"
+          "b . . e"
+          "c . . f ";
+        gap: 10px 20px;
+      }
+
+      .item:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+      .item:nth-child(2n) {
+        background-color: khaki;
+      }
+
+      .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+      }
+
+      .item1 {
+        grid-area: a;
+      }
+
+      .item2 {
+        grid-area: b;
+      }
+
+      .item3 {
+        grid-area: c;
+      }
+
+      .item4 {
+        grid-area: d;
+      }
+
+      .item5 {
+        grid-area: e;
+      }
+
+      .item6 {
+        grid-area: f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+      <div class="item item5">5</div>
+      <div class="item item6">6</div>
+
+      <!-- If there's remaining grid item, it will be put in the empty slot that is not named. -->
+      <div class="item">7</div>
+      <div class="item">8</div>
+    </div>
+  </body>
+</html>

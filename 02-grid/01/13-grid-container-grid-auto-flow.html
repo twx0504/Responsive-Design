@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rid Container Properties 4: grid-auto-flow 1</title>
+    <style>
+      .grid {
+        margin: 100px;
+        width: 800px;
+        height: 600px;
+        border: 2px solid tomato;
+        background-color: #f5f5f5;
+        display: grid;
+
+        grid-template-rows: repeat(3, 100px);
+        grid-template-columns: repeat(3, 100px);
+        /* Default: row by row */
+        /* grid-auto-flow: row; */
+        /* Column by column */
+        grid-auto-flow: column;
+      }
+
+      .item:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+      .item:nth-child(2n) {
+        background-color: khaki;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+      <div class="item item5">5</div>
+      <div class="item item6">6</div>
+      <div class="item item6">7</div>
+      <div class="item item6">8</div>
+      <div class="item item6">9</div>
+    </div>
+  </body>
+</html>

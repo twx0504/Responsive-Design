@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Grid Container Properties 1: Grid template columns and grid template rows
+      (auto)
+    </title>
+    <style>
+      .grid {
+        margin: 100px;
+        /* Let's comment out the container width, then the width will be the body width */
+        /* width: 600px; */
+        height: 400px;
+        background-color: #f5f5f5;
+        display: grid;
+        grid-template-rows: 100px 100px 100px;
+        /* If the container width is 600px */
+        /* the second column width will be 300px (auto calculation) */
+        /* If the container width is not set */
+        /* The second column width will be auto calculated when resizing the viewport. */
+        grid-template-columns: 200px auto 100px; 
+
+        /* If two auto, it will distribute equally based on remaining space */
+        /* grid-template-columns: 200px auto auto; */
+      }
+
+      /* We set the second grid item width */
+      /* With auto, you will see that the second grid cell width will stop going below the second item width (400px)  */
+      .second {
+        width: 400px;
+        background-color: khaki;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <!-- The item will be placed from left to right -->
+      <div class="grid-item">1</div>
+      <div class="grid-item second">2</div>
+      <div class="grid-item">3</div>
+      <div class="grid-item">4</div>
+    </div>
+  </body>
+</html>

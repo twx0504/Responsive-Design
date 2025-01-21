@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Grid Container Properties 1: Grid template columns and grid template rows
+    </title>
+    <style>
+      .grid {
+        /* Visualize the grid container */
+        /* Note the grid content area may not occupy the full size of grid container. */
+        background-color: lightblue;
+        display: grid;
+        /* Assume 2 x 2 */
+        /* Specify rows and column size */
+        /* Each row height is 100px */
+        grid-template-rows: 100px 100px 100px;
+        /* Each column width is 100px */
+        grid-template-columns: 100px 100px 100px;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="grid-item">4</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">4</div>
+    </div>
+  </body>
+</html>

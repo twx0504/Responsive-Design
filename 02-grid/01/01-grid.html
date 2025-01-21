@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01 Grid</title>
+    <style>
+        .grid {
+            display: grid;
+            /* Assume 3 x 3 */
+        }
+
+        .grid-item:nth-child(2n) {
+            background-color: khaki ;
+        }
+        .grid-item:nth-child(2n + 1) {
+            background-color: skyblue ;
+        }
+
+        span {
+            width: 300px;
+            /* span as block */
+            /* display: grid; */
+            /* span as inline-block */
+            display: inline-grid;
+            background-color: tomato;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="grid-item">4</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">4</div>
+    </div>
+
+    <span>A span element.</span>
+  </body>
+</html>

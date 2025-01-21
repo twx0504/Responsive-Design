@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Container Properties 8: grid-template & grid</title>
+    <style>
+      .grid {
+        margin: 100px;
+        width: 800px;
+        height: 600px;
+        border: 2px solid tomato;
+        background-color: #f5f5f5;
+        display: grid;
+        /* Define 2 Rows: row height as 100px and 200px respectively. */
+        /* Define 2 Columns: column width as 50px and 100px respectively */
+        /* Number of Grid Items: 2 * 2 */
+        /* Do not divide area */
+        /* grid-template: 100px 200px/ 50px 100px; */
+
+        /* Define 3 Rows: row height as 50px 100px and 50px respectively */
+        /* Define 3 Columns: column width as 100px 100px 100px  */
+        /* Divide area */
+
+        grid-template:
+          "a a b" 50px /* The first row height */
+          "a a b" 100px /* The second row height */
+          "c c c" 50px /* The third row height  *// 100px 100px 100px /* The column width for each column */;
+      }
+
+      .item:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+      .item:nth-child(2n) {
+        background-color: khaki;
+      }
+
+      /* Specify individual grid item in each compartment */
+      .item.item1 {
+        background-color: skyblue;
+        grid-area: b;
+      }
+
+      .item.item2 {
+        background-color: khaki;
+        grid-area: a;
+      }
+
+      .item.item3 {
+        background-color: tomato;
+        grid-area: c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <!-- 4 x 4 -->
+      <!-- <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div> -->
+      
+      <!-- 9 x 9 -->
+      <!-- <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">9</div> -->
+
+      <!-- With compartmentation -->
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+    </div>
+  </body>
+</html>

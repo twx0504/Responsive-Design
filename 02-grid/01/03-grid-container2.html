@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Grid Container Properties 1: Grid template columns and grid template rows (%)
+    </title>
+    <style>
+      .grid {
+        margin: 100px;
+        width: 600px;
+        height: 400px;
+        background-color: #f5f5f5;
+        display: grid;
+        /* Based on grid container. */
+       /* Note: if total % > 100%, it will overflow. */
+        grid-template-rows: 20% 50% 30%; 
+        grid-template-columns: 20% 50% 30%;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="grid-item">4</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">4</div>
+    </div>
+  </body>
+</html>

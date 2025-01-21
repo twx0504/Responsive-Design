@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Container Properties 6: justify-item, align-items, place-items</title>
+    <style>
+      
+      .grid {
+        margin: 100px;
+        width: 800px;
+        /* height: 600px; */
+        border: 2px solid tomato;
+        background-color: #f5f5f5;
+        display: grid;
+
+        grid-template-rows: repeat(3, 100px);
+        grid-template-columns: repeat(3, 100px);
+
+        /* justify-items - align grid cell content horizontally */
+        /* Default */
+        /* justify-items: stretch; */
+        /* justify-items: center; */
+        /* justify-items: start; */
+        /* justify-items: end; */
+
+        /* align-items - align grid cell content vertically */
+        /* Default */
+        /* align-items: stretch; */
+        /* align-items: center; */
+        /* align-items: start; */
+        /* align-items: end; */
+
+
+        /* Shorthand - place-items: align-items (vertical) justify-items (horizontal) */
+        place-items: end stretch;
+
+        /* If only one value, the second value will be regarded as the same as the first value. */
+        /* Same as place-items: center center */
+        place-items: center; 
+        /* Same as place-items: start start */
+        place-items: start;
+      }
+
+      .item:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+      .item:nth-child(2n) {
+        background-color: khaki;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <!-- Explicit Grid - through grid-template-columns / rows -->
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+      <div class="item item5">5</div>
+      <div class="item item6">6</div>
+      <div class="item item6">7</div>
+      <div class="item item6">8</div>
+      <div class="item item6">9</div>
+    </div>
+  </body>
+</html>

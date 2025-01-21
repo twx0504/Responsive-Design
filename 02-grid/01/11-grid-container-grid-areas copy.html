@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Container Properties 3: grid-template-areas & grid-area 1</title>
+    <style>
+      .grid {
+        width: 800px;
+        height: 600px;
+        border: 2px solid tomato;
+        background-color: #f5f5f5;
+        display: grid;
+
+        grid-template-rows: repeat(3, 100px);
+        grid-template-columns: repeat(3, 100px);
+        /* Divide grid areas */
+        /* Note: the same compartment must assign the same letter */
+        /* And the area you set must be rectangular / square */
+
+        grid-template-areas:
+        /* 3 x 3 - as we specified */
+        /* Same letters = merging of the cells */
+          "a a f"
+          "d d f"
+          "d d f";
+        gap: 10px 20px;
+      }
+
+      .item:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+      .item:nth-child(2n) {
+        background-color: khaki;
+      }
+
+      .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+      }
+
+      .item1 {
+        /* Specify which grid area this item belongs to  */
+        grid-area: a;
+      }
+
+      .item2 {
+        grid-area: f;
+      }
+
+      .item.item3 {
+        grid-area: d;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+
+      <div class="item item3">3</div>
+      <!-- <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div> -->
+    </div>
+  </body>
+</html>

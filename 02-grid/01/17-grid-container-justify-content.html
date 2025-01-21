@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Container Properties 7: justify-content, align-content</title>
+    <style>
+      .grid {
+        margin: 100px;
+        width: 800px;
+        height: 600px;
+        border: 2px solid tomato;
+        background-color: #f5f5f5;
+        display: grid;
+
+        grid-template-rows: repeat(3, 100px);
+        grid-template-columns: repeat(3, 100px);
+        /* justify-content: control horizontal alignment of the grid content area */
+        /* Default */
+        /* justify-content: start; */
+        /* justify-content: end; */
+        /* justify-content: center; */
+        /* This doesn't have any effect, because the size of grid cell has been specified. */
+        /* justify-content: stretch; */
+        /* justify-content: space-around; */
+        /* justify-content: space-between; */
+        /* justify-content: space-evenly; */
+
+        /* align-content: control vertical alignment of the grid content area */
+        /* Default */
+        /* align-content: start; */
+        /* align-content: end; */
+        /* align-content: center; */
+        /* align-content: stretch; */
+        /* align-content: space-around; */
+        /* align-content: space-between; */
+        /* align-content: space-evenly; */
+
+        /* Shorthand */
+        /* place-content align-content (vertical) justify-content (horizontal) */
+        /* place-content: center start; */
+        /* place-content: end start; */
+        place-content: space-evenly;
+      }
+
+      .item:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+      .item:nth-child(2n) {
+        background-color: khaki;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <!-- Explicit Grid - through grid-template-columns / rows -->
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+      <div class="item item5">5</div>
+      <div class="item item6">6</div>
+      <div class="item item6">7</div>
+      <div class="item item6">8</div>
+      <div class="item item6">9</div>
+    </div>
+  </body>
+</html>

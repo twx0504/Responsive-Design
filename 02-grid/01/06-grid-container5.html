@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Grid Container Properties 1: Grid template columns and grid template rows
+      (repeat)
+    </title>
+    <style>
+      .grid {
+        margin: 100px;
+        width: 600px;
+        height: 500px;
+        background-color: #f5f5f5;
+        display: grid;
+        /* use repeat to save time writing the repeating values. */
+
+        /* Usage 1: Repeating Values  */
+        /* repeat(times, values) */
+        /* grid-template-rows: repeat(3, 100px); */
+
+        /* Usage 2: Repeating Pattern */
+        /* repeat(times, pattern) */
+        /* define 6 columns, the first and fourth columns are 50px, the second and fifth columns are 100px, and the third and sixth columns are 80px */
+        grid-template-columns: repeat(2, 50px 100px 80px);
+        /* define 6 rows, the first and fourth rows are 50px, the second and fifth rows are 100px, and the third and sixth rows are 80px */
+        grid-template-rows: repeat(2, 50px 100px 80px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <!-- The item will be placed from left to right -->
+      <div class="grid-item">1</div>
+      <div class="grid-item second">2</div>
+      <div class="grid-item">3</div>
+      <div class="grid-item">4</div>
+    </div>
+  </body>
+</html>
