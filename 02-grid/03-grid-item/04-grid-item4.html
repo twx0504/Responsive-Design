@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Grid Item 1: grid-column-start, end, row-start, row-end 4 - value as span (row span)
+    </title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid {
+        width: 600px;
+        height: 600px;
+        display: grid;
+        /* Define line name and track size   */
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        border: 1px solid;
+        /* place-content seems to affect the implicit grid. */
+        place-content: center;
+
+        /* grid-auto-flow: row dense; */
+      }
+
+      .grid .item:nth-child(2n) {
+        background-color: khaki;
+      }
+
+      .grid .item:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+      .grid .item.item1 {
+        background-color: pink;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+      .grid .item.item2 {
+        /* Concept: */
+        /* Question: If we don't specify grid-row-start, what is the "default" value then? */
+        /* Answer: It will be determine based on the current item location in the grid -> to know the grid line number. */
+        /* Note the default is not static, it will change according to the situation e.g., the preceeding item changes, and item2 is pushed backward. Or its span changes.*/
+        background-color: tomato;
+        /* span:  span how many rows / columns starting from the item's current position / "default". */
+        /* Span 2 rows, starting from its current (default) row position. */
+        grid-row-start: span 2;
+        /* But when setting column start right here, the current location cannot meet the requirement, so it will be moved to the next row. */
+        /* This might leave behind a gap from the previous row. */
+        /* If you want to backfill the gap, you can set grid-auto-flow: row dense on the grid container. */
+        /* Span 3 columns, starting from its current (default) column position */
+        grid-column-start: span 3;
+
+        /* What if we span 5?  */
+        /* It will take into account the implicit grid columns */
+        /* But, when setting place-content: center in grid container, span 5 is STILL same as span 3. Why is that? */
+        /* Answer: It works, when you have more grid items, and set grid-auto-flow: row dense on the grid container to backfill the gap. */
+        /* This way, the implicit columnS are utilized and filled by the items behind item2. */
+        /* If you have more item before item2, those items will fill themselves into the implicit grid even if you set place-content: center. */
+        /* In summary, the order of item / element in the grid matters. */
+        /* Comment out to see what happens: */
+        /* grid-column-start: span 5; */
+      }
+
+      .extra {
+        background-color: greenyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="item item1">1</div>
+      <!-- Case: grid-column-start: span 5 -->
+      <!-- Comment out the following element to see the difference. -->
+      <!-- When place-content: center on grid container, these extra items will automatically fill the implicit grid (column / row) -->
+      <!-- Without them, the gaps are left, and the implicit grid is not activated. -->
+      <!-- <div class="extra">extra</div>
+      <div class="extra">extra</div>
+      <div class="extra">extra</div> -->
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item item9">9</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Item 1: grid-column-start, end, row-start, row-end - value as grid line number 1</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid {
+        width: 600px;
+        height: 600px;
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        border: 1px solid;
+        place-content: center;
+      }
+
+      .grid .item:nth-child(2n) {
+        background-color: khaki;
+      }
+      .grid .item:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+
+      .item1 {
+        /* Use grid line number to specify the location of grid item. */
+        /* the number refers to grid line number. */
+        /* Rows spans from 1 to 3 */
+        grid-row-start: 1;
+        grid-row-end: 3;
+        /* Columns span from 2 to 4 */
+        grid-column-start: 2;
+        grid-column-end: 4;
+      }
+
+      .item2 {
+        /* Rows spans from 3 to 4 */
+        grid-row-start: 3;
+        grid-row-end: 4;
+        /* Columns span from 1 to 4 */
+        grid-column-start: 1;
+        grid-column-end: 4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <!-- <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">9</div> -->
+    </div>
+  </body>
+</html>

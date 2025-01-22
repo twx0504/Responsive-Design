@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Grid Item 2: Grid Area 3 - special use case for responsive grid layout 1 - flex
+    </title>
+    <style>
+      /* Divide into 12 fractions / 24 fractions. */
+      .grid-layout {
+        margin: 10px;
+        /* width: 100%; */
+        display: flex;
+      }
+      /* 1 / 12 */
+      .col {
+        width: 8.33333333%;
+      }
+      /* 2/ 12 */
+      .col2 {
+        width: 16.66666667%;
+      }
+      /* 3/ 12 */
+      .col3 {
+        width: 25%;
+      }
+      /* 4 / 12 */
+      .col4 {
+        width: 33.33333333%;
+      }
+      /* 5 / 12 */
+      .col5 {
+        width: 41.66666667%;
+      }
+      /* 6 / 12 */
+      .col6 {
+        width: 50%;
+      }
+      /* 7 / 12 */
+      .col7 {
+        width: 58.33333333%;
+      }
+      /* 8 / 12 */
+      .col8 {
+        width: 66.66666667%;
+      }
+      /* 9 / 12 */
+      .col9 {
+        width: 75%;
+      }
+      /* 10 / 12 */
+      .col10 {
+        width: 83.33333333%;
+      }
+      /* 11 / 12 */
+      .col11 {
+        width: 91.66666667%;
+      }
+      /* 12 / 12 */
+      .col12 {
+        width: 100%;
+      }
+      .col:nth-child(2n + 1) {
+        background-color: pink;
+      }
+
+      .col:nth-child(2n) {
+        background-color: skyblue;
+      }
+
+      .col4:nth-child(2n + 1) {
+        background-color: pink;
+      }
+
+      .col4:nth-child(2n) {
+        background-color: skyblue;
+      }
+
+      .col3:nth-child(2n + 1) {
+        background-color: pink;
+      }
+
+      .col3:nth-child(2n) {
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Grid Layout -->
+
+    <!-- 12 columns -->
+    <div class="grid-layout">
+      <div class="col">1</div>
+      <div class="col">2</div>
+      <div class="col">3</div>
+      <div class="col">4</div>
+      <div class="col">5</div>
+      <div class="col">6</div>
+      <div class="col">7</div>
+      <div class="col">8</div>
+      <div class="col">9</div>
+      <div class="col">10</div>
+      <div class="col">11</div>
+      <div class="col">12</div>
+    </div>
+
+    <!-- 3 columns -->
+    <div class="grid-layout">
+      <div class="col4">1</div>
+      <div class="col4">2</div>
+      <div class="col4">3</div>
+    </div>
+
+    <!-- 4 columns -->
+    <div class="grid-layout">
+      <div class="col3">1</div>
+      <div class="col3">2</div>
+      <div class="col3">3</div>
+      <div class="col3">4</div>
+    </div>
+  </body>
+</html>

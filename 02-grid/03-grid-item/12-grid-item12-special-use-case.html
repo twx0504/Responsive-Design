@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Grid Item 2: Grid Area 3 - special use case for responsive grid layout 2 - grid
+    </title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .grid-layout {
+        margin: 10px;
+        /* Width as body width */
+        display: grid;
+        /* Divide the page into 12 fractions / columns */
+        grid-template-columns: repeat(12, 1fr);
+      }
+
+      /* Fractions and how much grid cell it spans (columns) */
+      /* how many columns (fractions of the total grid) each element will span */
+      .col1 {
+        grid-area: auto / auto / auto / auto; /* span 1 */
+      }
+
+      .col2 {
+        grid-area: auto / auto / auto / span 2;
+      }
+
+      .col3 {
+        grid-area: auto / auto / auto / span 3;
+      }
+
+      .col4 {
+        grid-area: auto / auto / auto / span 4;
+        background-color: tomato;
+      }
+
+      .col5 {
+        grid-area: auto / auto / auto / span 5;
+        background-color: tomato;
+      }
+
+      .col6 {
+        grid-area: auto / auto / auto / span 6;
+        background-color: tomato;
+      }
+
+      .col7 {
+        grid-area: auto / auto / auto / span 7;
+        background-color: tomato;
+      }
+
+      .col8 {
+        grid-area: auto / auto / auto / span 8;
+        background-color: tomato;
+      }
+
+      .col9 {
+        grid-area: auto / auto / auto / span 9;
+        background-color: tomato;
+      }
+
+      .col10 {
+        grid-area: auto / auto / auto / span 10;
+        background-color: tomato;
+      }
+
+      .col11 {
+        grid-area: auto / auto / auto / span 11;
+        background-color: tomato;
+      }
+
+      .col12 {
+        grid-area: auto / auto / auto / span 12;
+        background-color: tomato;
+      }
+
+      .item {
+        border: 1px solid;
+        text-align: center;
+      }
+
+      .item:nth-child(2n+ 1) {
+        background-color: khaki;
+      }
+      .item:nth-child(2n) {
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Grid Layout -->
+
+    <!-- 4 columns -->
+    <div class="grid-layout">
+      <div class="item col3">1</div>
+      <div class="item col3">2</div>
+      <div class="item col3">3</div>
+      <div class="item col3">4</div>
+    </div>
+    <!-- 3 columns -->
+    <div class="grid-layout">
+      <div class="item col4">1</div>
+      <div class="item col4">2</div>
+      <div class="item col4">3</div>
+    </div>
+    <!-- 6 columns -->
+    <div class="grid-layout">
+      <div class="item col2">1</div>
+      <div class="item col2">2</div>
+      <div class="item col2">3</div>
+      <div class="item col2">4</div>
+      <div class="item col2">5</div>
+      <div class="item col2">6</div>
+    </div>
+  </body>
+</html>

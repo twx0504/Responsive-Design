@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Grid Item 1: grid-column-start, end, row-start, row-end 3 - value as grid
+      line name
+    </title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid {
+        width: 600px;
+        height: 600px;
+        display: grid;
+        /* Define line name and track size   */
+        grid-template-columns: [a1] 100px [a2] 100px [a3] 100px [a4];
+        grid-template-rows: [c1] 100px [c2] 100px [c3] 100px [c4];
+        border: 1px solid;
+      }
+
+      .grid .item:nth-child(2n) {
+        background-color: khaki;
+      }
+      
+      .grid .item:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+
+      .grid .item.item1 {
+        grid-row-start: c3;
+        grid-row-end: c4;
+        grid-column-start: a2;
+        grid-column-end: a4;
+        background-color: tomato;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="item item1">1</div>
+      <!-- When we don't specify the grid-row-start, end, column-start, end, it will be default, determining its grid lines based on the item location in the grid. -->
+      <div class="item item2">2</div>
+      <!-- <div class="item item3">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div> -->
+      <!-- <div class="item">9</div> -->
+    </div>
+  </body>
+</html>

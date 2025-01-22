@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Item 1: grid-column-start, end, row-start, row-end - value as grid line number 2</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid {
+        width: 600px;
+        height: 600px;
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        border: 1px solid;
+        /* Default: */
+        /* grid-auto-flow: row */
+
+        /* With dense */
+        /* You would notice that item 4 and item 5 will slide themselves into the empty slot before where the item 3 placed. */
+        /* When `dense` is added, browser will try to backfill the space with grid item that can fit, avoid space in the layout. */
+        /* For example, item 4 and item 5 will slide into any available empty slots 
+     before item 3 is placed. */
+
+        /* Use: when you want to backfill the gap. Otherwise, default is ok. */
+        grid-auto-flow: row dense;
+      }
+
+      .grid .item:nth-child(2n) {
+        background-color: khaki;
+      }
+      .grid .item:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+
+      .grid .item.item3 {
+        /* We commented out this grid-row-start and grid-row-end to visualize the behaviour of grid-auto-flow */
+        /* Because, with these two lines, the item 3 location is known and fixed. */
+        /* Without these lines, item3 will be placed in the first available space that fits its size. */
+        /* If there's no space in the current row, it will move to the next row, possibly leaving gaps */
+        /* grid-row-start: 2;
+        grid-row-end: 3; */
+
+        grid-column-start: 2;
+        grid-column-end: 4;
+        background-color: tomato;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <!-- <div class="item">9</div> -->
+    </div>
+  </body>
+</html>

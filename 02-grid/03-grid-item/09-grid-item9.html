@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Item 2: Grid Area 1</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid {
+        width: 600px;
+        height: 600px;
+        display: grid;
+        /* Define line name and track size   */
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        /* Specify the areas and names. */
+        grid-template-areas: 
+        "a a b"
+        "a a b"
+        "c c e"
+        ;
+        border: 1px solid;
+      }
+
+      .grid .item:nth-child(2n) {
+        background-color: khaki;
+      }
+
+      .grid .item:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+
+      .grid .item.item1 {
+        background-color: tomato;
+        /* Work with grid-template-areas */
+        /* Specify the location of item in a named area. */
+        grid-area: a;
+      }
+      .grid .item.item2 {
+        background-color: greenyellow;
+        
+        grid-area: b;
+      }
+      .grid .item.item3 {
+        background-color: #008c8c;
+        grid-area: c;
+      }
+      .grid .item.item4 {
+        background-color: palevioletred;
+        grid-area: e;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+    </div>
+  </body>
+</html>

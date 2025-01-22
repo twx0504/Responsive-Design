@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Grid Item 1: grid-column-start, end, row-start, row-end 4 - value as span
+      3 (auto)
+    </title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid {
+        width: 600px;
+        height: 600px;
+        display: grid;
+        /* Define line name and track size   */
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+        border: 1px solid;
+
+        place-content: center;
+      }
+
+      .grid .item:nth-child(2n) {
+        background-color: khaki;
+      }
+
+      .grid .item:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+
+      .grid .item.item1 {
+        /* Starting from end, occupy one grid cell (span 1) */
+        /* Starting from column grid line number 2, span 1 */
+        /* auto is default, which means span 1 */
+        /* Add and Not add auto, it has the same effect. */
+
+        /* grid-row-start: auto; */
+        /* => know the end of grid row line */
+        grid-row-end: 4;
+
+        /* => know the start of grid column line */
+        grid-column-start: 2;
+
+        /* grid-column-end: auto; */
+
+        /* With only two properties set, we can infer the position of the grid item already as the other two default to auto. */
+        background-color: tomato;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+      <div class="item item5">5</div>
+      <div class="item item6">6</div>
+      <div class="item item7">7</div>
+      <div class="item item8">8</div>
+      <div class="item item9">9</div>
+    </div>
+  </body>
+</html>
