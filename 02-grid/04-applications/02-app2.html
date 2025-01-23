@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application 2</title>
+    <style>
+      .grid {
+        width: 1000px;
+        min-height: 600px;
+        /* height based on content */
+        display: grid;
+        grid-auto-flow: column;
+        /* auto: take remaining space */
+        grid-template-columns: 200px auto;
+        /* 6 rows 80 200 80 200 80 200 */
+        grid-template-rows: repeat(3, 80px 200px);
+        column-gap: 20px;
+      }
+
+      .item {
+        text-align: center;
+        /* Avoid the children exceeds the grid item. */
+        overflow: hidden;
+      }
+
+      .grid .item.item7 {
+        grid-row-start: 1;
+        /* Spans 6 rows */
+        grid-row-end: span 6;
+      }
+
+      .grid .item.title {
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .grid .item.list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 5px;
+      }
+      /* Question: Why do we put img in another div wrapper? */
+      .grid .item .img {
+        /* Ensure no overflow */
+        /* Comment out to see what would happen. */
+        overflow: hidden;
+      }
+      .grid .item img {
+        /* Ensure the imgDiv size is the same as grid item */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* display: ; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="item item1 title">Hats</div>
+      <div class="item item2 list">
+        <div class="img">
+          <img src="../husky.jpg" alt="" />
+        </div>
+        <div class="img">
+          <img src="../husky.jpg" alt="" />
+        </div>
+        <div class="img">
+          <img src="../husky.jpg" alt="" />
+        </div>
+        <div class="img">
+          <img src="../husky.jpg" alt="" />
+        </div>
+      </div>
+      <div class="item item3 title">Clothes</div>
+      <div class="item item4 list">
+        <div class="img">
+          <img src="../husky.jpg" alt="" />
+        </div>
+        <div class="img">
+          <img src="../husky.jpg" alt="" />
+        </div>
+        <div class="img">
+          <img src="../husky.jpg" alt="" />
+        </div>
+        <div class="img">
+          <img src="../husky.jpg" alt="" />
+        </div>
+      </div>
+      <div class="item item5 title">Pants</div>
+      <div class="item item6 list">
+        <div class="img">
+          <img src="../husky.jpg" alt="" />
+        </div>
+        <div class="img">
+          <img src="../husky.jpg" alt="" />
+        </div>
+        <div class="img">
+          <img src="../husky.jpg" alt="" />
+        </div>
+        <div class="img">
+          <img src="../husky.jpg" alt="" />
+        </div>
+      </div>
+      <div class="item item7">
+        <div class="img"><img src="../husky.jpg" alt="" /></div>
+      </div>
+    </div>
+  </body>
+</html>

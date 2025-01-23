@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application 1</title>
+    <style>
+      .grid {
+        margin: 50px auto;
+        width: 900px;
+        min-height: 800px;
+        display: grid;
+        grid-template-rows: repeat(3, 200px);
+        grid-template-columns: 200px auto 200px;
+        grid-auto-flow: column;
+        /* When you use grid-area on item */
+        /* grid-template-areas:
+          "a d e"
+          "b d f"
+          "c d g"; */
+        /* grid-auto-flow: column; */
+        gap: 10px;
+      }
+
+      .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid;
+        /* Avoid the overflow of grid item content */
+        /* overflow: hidden; */
+      }
+
+      .item:nth-child(2n + 1) {
+        background-color: khaki;
+      }
+
+      .item:nth-child(2n) {
+        background-color: skyblue;
+      }
+
+      .item4 {
+        /* grid-area: d; */
+
+        /* Alternative: */
+        grid-row-start: span 3;
+        grid-column-start: 2;
+        grid-column-end: 3;
+      }
+
+      /* If you have img in items: */
+      /* .img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      } */
+
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <!-- In each item, you can put img -->
+      <!-- set image width and height as 100% to the item size -->
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+      <div class="item item5">5</div>
+      <div class="item item6">6</div>
+      <div class="item item7">7</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application 3</title>
+    <style>
+      .grid {
+        /* Fixed the width, avoid image deform. */
+        width: 820px;
+        /* Horizontally Centering */
+        margin: 50px auto;
+        height: 800px;
+        /* background-color: lightblue; */
+        display: grid;
+        /* 4 Rows 3 Columns */
+        grid-template-rows: 200px 150px 60px 200px;
+        grid-template-columns: repeat(3, 1fr);
+        /* grid-auto-flow: column; */
+        grid-template-areas:
+          "a a f"
+          "b d f"
+          "c d f"
+          "c e g";
+
+        gap: 20px;
+        place-content: center;
+      }
+
+      .item:nth-child(2n + 1) {
+        background-color: khaki;
+      }
+      .item:nth-child(2n) {
+        background-color: skyblue;
+      }
+
+      .item1 {
+        grid-area: a;
+      }
+
+      .itme2 {
+        grid-area: b;
+      }
+
+      .item3 {
+        grid-area: c;
+      }
+
+      .item4 {
+        grid-area: d;
+      }
+
+      .item5 {
+        grid-area: e;
+      }
+
+      .item6 {
+        grid-area: f;
+      }
+
+      .item7 {
+        grid-area: g;
+      }
+
+      .grid .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .grid .item1 img {
+        object-position: top;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="item item1"><img src="../husky.jpg" alt=""></div>
+      <div class="item item2"><img src="../husky.jpg" alt=""></div>
+      <div class="item item3"><img src="../husky.jpg" alt=""></div>
+      <div class="item item4"><img src="../husky.jpg" alt=""></div>
+      <div class="item item5"><img src="../husky.jpg" alt=""></div>
+      <div class="item item6"><img src="../husky.jpg" alt=""></div>
+      <div class="item item7"><img src="../husky.jpg" alt=""></div>
+    </div>
+  </body>
+</html>
