@@ -1,0 +1,38 @@
+/* 
+    media.css contains media queries and their respective CSS styles.
+    import via link element.
+    import at the back of all the normal css styles.
+
+*/
+
+@media screen and (min-width: 576px) {
+  body {
+    background-color: lightcoral;
+  }
+}
+
+/* Screen devices AND width >= 768px AND < 992px */
+@media screen and (min-width: 768px) {
+  body {
+    background-color: green;
+  }
+}
+
+/* Screen devices AND width >= 992px */
+@media screen and (min-width: 992px) {
+  body {
+    background-color: palegoldenrod;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  body {
+    background-color: palevioletred;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  body {
+    background-color: #008c8c;
+  }
+}

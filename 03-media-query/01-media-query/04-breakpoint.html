@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breakpoint</title>
+    <style>
+      /* Display different background color of body based on various screen size. */
+      body {
+        background-color: lightblue;
+      }
+
+      /* || Important: Write media queries after all your CSS styles! */
+      /* Note: CSS writing at the back will cover the CSS writing at the front. */
+      /* They have same specificity. */
+      /* Screen devices AND width >= 576px AND < 768 px*/
+      @media screen and (min-width: 576px) {
+        body {
+          background-color: lightcoral;
+        }
+      }
+
+      /* Screen devices AND width >= 768px AND < 992px */
+      @media screen and (min-width: 768px) {
+        body {
+          background-color: green;
+        }
+      }
+
+      /* Screen devices AND width >= 992px */
+      @media screen and (min-width: 992px) {
+        body {
+          background-color: palegoldenrod;
+        }
+      }
+
+      @media screen and (min-width: 1200px) {
+        body {
+          background-color: palevioletred;
+        }
+      }
+
+      @media screen and (min-width: 1400px) {
+        body {
+          background-color: #008c8c;
+        }
+      }
+
+      /* Comment out to see what would happen if you write your standard CSS after media queries. */
+      /* It will overwrite all the media queries you write before this line! */
+      /* body {
+        background-color: lightblue;
+      } */
+
+    </style>
+  </head>
+  <body></body>
+</html>

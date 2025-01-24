@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Application 1:</title>
+    <style>
+      body {
+        margin: 0;
+        background-color: #ddd;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0px 5px;
+      }
+
+      .col {
+        /* width: 25%; */
+        /* height: 200px; */
+        border: 1px solid;
+        box-sizing: border-box;
+        /* padding: 10px 5px; */
+      }
+
+      .content {
+        margin: 10px 5px;
+        background-color: #fff;
+        min-height: 200px;
+      }
+
+      .row1 {
+        background-color: lightblue;
+      }
+
+      .row2 {
+        background-color: lightgreen;
+      }
+
+      .row3 {
+        background-color: lightpink;
+      }
+      
+      .row4 {
+        background-color: lightgrey;
+      }
+    </style>
+    <link rel="stylesheet" href="./media.css" />
+  </head>
+  <body>
+    <div class="row row1">
+      <!-- Normal: Each 3 fractions  -->
+      <!-- width <= 1200px: Each 6 fractions -->
+      <!-- width <= 768px: Each 12 fractions -->
+      <div class="col col-xxl-3 col-lg-6 col-sm-12">
+        <div class="content">1</div>
+      </div>
+      <div class="col col-xxl-3 col-lg-6 col-sm-12">
+        <div class="content">2</div>
+      </div>
+      <div class="col col-xxl-3 col-lg-6 col-sm-12">
+        <div class="content">3</div>
+      </div>
+      <div class="col col-xxl-3 col-lg-6 col-sm-12">
+        <div class="content">4</div>
+      </div>
+    </div>
+    <div class="row row2">
+      <!-- Normal: Left: 8 fractions, Right 4 fractions  -->
+      <!-- width <= 992px: Each 12 fractions -->
+      <div class="col col-xxl-8 col-md-12"><div class="content">1</div></div>
+      <div class="col col-xxl-4 col-md-12"><div class="content">2</div></div>
+    </div>
+    <div class="row row3">
+      <!-- Normal: Left: 4 fractions, Right 8 fractions  -->
+      <!-- width <= 992px: Each 12 fractions -->
+      <div class="col col-xxl-4 col-md-12"><div class="content">1</div></div>
+      <div class="col col-xxl-8 col-md-12"><div class="content">2</div></div>
+    </div>
+    <div class="row row4">
+      <!-- width <= 1200px: Each 4 fractions -->
+      <!-- width <= 992px: Two occupy 6 fractions, one occupies 12 fractions. -->
+      <!-- width <= 768px: Each 12 fractions -->
+      <div class="col col-xxl-4 col-md-6 col-sm-12">
+        <div class="content">1</div>
+      </div>
+      <div class="col col-xxl-4 col-md-6 col-sm-12">
+        <div class="content">2</div>
+      </div>
+      <div class="col col-xxl-4 col-md-12 col-sm-12">
+        <div class="content">3</div>
+      </div>
+    </div>
+  </body>
+</html>

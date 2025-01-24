@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PC First</title>
+    <style>
+      /* PC-First Approach */
+      /* The latter media query will overwrite the front one. */
+      /* PC screen is very large */
+      body {
+        background-color: khaki;
+      }
+
+      /* Screen AND width <= 1200px AND width > 992px*/
+      @media screen and (max-width: 1200px) {
+        body {
+          background-color: skyblue;
+        }
+      }
+
+      /* Screen AND width <= 992px AND width > 768px */
+      @media screen and (max-width: 992px) {
+        body {
+          background-color: green;
+        }
+      }
+
+      /* Screen AND width <= 768px AND width > 576px */
+      @media screen and (max-width: 768px) {
+        body {
+          background-color: violet;
+        }
+      }
+
+      /* Screen AND width <= 576px */
+      @media screen and (max-width: 576px) {
+        body {
+          background-color: brown;
+        }
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

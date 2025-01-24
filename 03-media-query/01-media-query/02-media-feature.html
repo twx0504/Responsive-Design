@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Feature</title>
+    <style>
+      /* all media and  width >= 768px */
+      /* @media (min-width: 400px) {
+            body {
+                background-color: red;
+            }
+        } */
+
+      /* Print and width >= 768px */
+      /* Why dont work in print preview? */
+      /* Is the width refers to the print preview width? */
+      @media print and (min-width: 768px) {
+        body {
+          background-color: khaki;
+        }
+      }
+
+      /* Screen and width >= 400px and width <= 500px */
+      @media screen and (min-width: 400px) and (max-width: 500px) {
+        body {
+          background-color: skyblue;
+        }
+      }
+
+      /* Different mobile phones have different DPR. */
+      /* Mobile phone has becoming more and more high-definition. */
+      /* The higher the DPR, the higher the visual clarity and sharpness. */
+      /* Phone A has higher DPR than Phone B. */
+      /* The same image viewed by two phones. */
+      /* It will have more clarity in phone A compared to phone B. */
+      /* DPR = physicalPixels (Device Pixels) / logicalPixels (CSS pixels) */
+
+      /* screen and DPR >= 2 */
+      @media screen and (-webkit-min-device-pixel-ratio: 2) {
+        body {
+          background-color: green;
+        }
+      }
+      
+      /* screen and DPR >= 3 */
+      @media screen and (-webkit-min-device-pixel-ratio: 3) {
+        body {
+          background-color: yellow;
+        }
+      }
+
+      /* Screen and landscape */
+      @media screen and (orientation: landscape) {
+        body {
+            background-color: black;
+        }
+      }
+    </style>
+  </head>
+  <body></body>
+</html>

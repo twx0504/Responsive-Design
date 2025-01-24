@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logical Operator</title>
+    <style>
+      /* screen and (min-width: 400px) : >= 400px*/
+      /* OR */
+      /* all devices (as we do not specify) and (max-width: 375px) <= 375px */
+      /* Either condition meets, apply styles */
+      @media screen and (min-width: 400px), (max-width: 375px) {
+        body {
+          background-color: yellow;
+        }
+      }
+
+      /* Example 2: */
+      /* @media screen and (min-width: 400px), screen and (max-width: 375px) {
+            body {
+                background-color: yellow
+            };
+        } */
+
+      /* screen and (min-width: 500px) */
+      /* If current device is a screen device and width >= 500px */
+      /* not screen and (min-width: 500px) */
+      /* -> If current device is screen device and width < 500px */
+      /* -> If current device is not screen device  */
+      @media not screen and (min-width: 500px) {
+        body {
+          background-color: skyblue;
+        }
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
